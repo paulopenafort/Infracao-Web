@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="mainApp">
+<html class="container" lang="en" ng-app="mainApp">
 
 <head>
     <title></title>
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../node_modules/ui-bootstrap4/dist/ui-bootstrap-tpls.js">
 
 </head>
 
@@ -20,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
 
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" ng-href="#/infracao">Infrações
                             <span class="sr-only">(current)</span>
                         </a>
@@ -28,13 +29,24 @@
 
                     <li class="nav-item">
                         <a class="nav-link" ng-href="#/municipio">Município</a>
+                        <span class="sr-only">(current)</span>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" ng-href="#/veiculo">Veículos</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" ng-href="#/modalTeste">Testando Modal</a>
+                    </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" ng-href="#/popoverTeste">Testando Popover</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" ng-href="#/uploadImagesTeste">Upload de Arquivos</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -56,6 +68,7 @@
     <script src="../node_modules/angular-route/angular-route.js"></script>
     <script src="../node_modules/angular-messages/angular-messages.js"></script>
     <script src="../node_modules/ui-bootstrap4/dist/ui-bootstrap.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 
     
 
@@ -71,7 +84,44 @@
     <script src="js/controller/municipio-ctrl.js"></script>
     <script src="js/controller/municipio-form-ctrl.js"></script>
     <script src="js/service/municipio-service.js"></script>
+
+    <script src="js/controller/veiculo-ctrl.js"></script>
+    <script src="js/service/veiculo-service.js"></script>
+    <script src="js/controller/veiculo-form-ctrl.js"></script>
+    
+     <!-- MOdal -->
+    <script src="view/modal/modal.js"></script>
+    <script src="../node_modules/ui-bootstrap4/dist/ui-bootstrap.js"></script>
+    <script src="../node_modules/ui-bootstrap4/dist/ui-bootstrap-tpls.js"></script>
+    <script src="../node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="js/service/dialog-generico-confirmacao.js"></script>
+    <script src="js/service/dialog-generico-resposta.js"></script>
+    <script src="js/controller/confirmacao-dialog-ctrl.js"></script>
+    <script src="js/controller/resposta-dialog-ctrl.js"></script>
+    
     <!-- End App-->
+
+
+    <script type="text/ng-template" id="error-messages">
+		<span class="help-block" ng-message="required">Obrigatório</span>
+		<span class="help-block" ng-message="email">E-mail é inválido </span>
+		<span class="help-block" ng-message="url">URL é inválida </span>
+		<span class="help-block" ng-message="date">Data é inválida </span>
+    </script>
+    
+    <!-- Modal teste-->
+
+    <script src="view/modalTeste/modalComponent.js"></script>
+    <script src="view/modalTeste/modalDemoCtrl.js"></script>
+    <script src="view/modalTeste/modalInstanceCtrl.js"></script>
+
+    <!-- Popover teste-->
+    <script src="view/popoverTeste/popover.js"></script>
+    <script src="../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+
+    <!-- Upload teste-->
+    <script src="view/uploadImagesTeste/myCtrl.js"></script>
+    <script src="../node_modules/ng-file-upload/dist/ng-file-upload-all.min.js"></script>
 </body>
 
 </html>

@@ -37,8 +37,11 @@
                 </select>
 
                 <div class="invalid-feedback" ng-messages="infracaoForm.natureza.$error">
-                    <span ng-message="required">Obrigatório</span>
+                        <span ng-messages-include="error-messages"></span>
                 </div>
+
+                
+
             </div>
         </div>
 

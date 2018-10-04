@@ -1,19 +1,17 @@
 angular.module('mainApp')
-    .controller('InfracaoCtrl', function ($scope, InfracaoService) {
+    .controller('InfracaoCtrl',['$scope','InfracaoService','dialogs', function ($scope, InfracaoService,dialogs) {
 
 
         function listar() {
-
             InfracaoService.listar().then(
                 function (response) {
-
                    $scope.infracoes = response.data;
                 }, function (error) {
                     console.log(error);
                 });
         }
 
-        $scope.remover = function (infracao) {
+        function removerDefinitivo(infracao) {
             InfracaoService.remover(infracao.id)
                 .then(
                 function (response) {
@@ -23,10 +21,16 @@ angular.module('mainApp')
                 }, function (error) {
                     console.log(error);
                 });
+        }
+
+        $scope.remover = function (infracao) {
+           var dlg =  dialogs.confirm('Confirmação','Deseja realmente remover a infracao?');
+                        
+
+           dlg.result.then(function(){
+                removerDefinitivo(infracao);
+           });
        };
 
-
-
-
-        listar();
-    });
+       listar();
+    }]);

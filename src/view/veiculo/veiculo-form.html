@@ -1,0 +1,112 @@
+<div class="container">
+
+    <h1 class="h2" ng-hide="veiculo.id">Cadastro de Veículo</h1>
+    <h1 class="h2" ng-show="veiculo.id">Edição de Veículo</h1>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a ng-href="#/infracao">Veículo</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page" ng-hide="veiculo.id">Cadastro</li>
+            <li class="breadcrumb-item active" aria-current="page" ng-show="veiculo.id">Edição</li>
+        </ol>
+    </nav>
+
+    <form name="veiculoForm">
+        <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label for="nome">Nome do veículo*</label>
+                <input type="text" class="form-control" name="nome" id="nome" ng-model="veiculo.nome" placeholder="Digite o nome do veículo"
+                    ng-required="true">
+                <div ng-show="veiculoForm.marca.$dirty" ng-messages="veiculoForm.marca.$error">
+                    <div ng-message="required" class="alert alert-danger">Preencha nome do veículo!</div>
+                    <div ng-message="maxlength" class="alert alert-danger">Nome inválido!</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <div class="form-group">
+                    <label for="marca">Marca do veículo*</label>
+                    <input type="text" class="form-control" name="marca" id="marca" ng-model="veiculo.marca"
+                        placeholder="Digite a marca do veículo" ng-maxlength="20" ng-required="true">
+                    <div ng-show="veiculoForm.marca.$dirty" ng-messages="veiculoForm.marca.$error">
+                        <div ng-message="required" class="alert alert-danger">Preencha a marca do veículo</div>
+                        <div ng-message="maxlength" class="alert alert-danger">Marca inválida!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <div class="form-group">
+                    <label for="cor">Cor do veículo*</label>
+                    <input type="text" class="form-control" name="cor" id="cor" ng-model="veiculo.cor" placeholder="Digite a cor do veículo"
+                        ng-required="true" ng-maxlength="15" ng-pattern="/[a-z]{1,15}/">
+                    <div ng-show="veiculoForm.cor.$dirty" ng-messages="veiculoForm.cor.$error">
+                        <div ng-message="required" class="alert alert-danger">Preencha a cor do veículo!</div>
+                        <div ng-message="maxlength" class="alert alert-danger">Cor inválida!</div>
+                        <div ng-message="pattern" class="alert alert-danger">Cor inválida!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="placa">Placa do veículo*</label>
+                <input type="text" class="form-control" name="placa" id="placa" ng-model="veiculo.placa" ng-required="true"
+                    placeholder="Digite a placa do veículo" ng-pattern="/^[A-Z]{3}-\d{4}$/">
+                <div ng-show="veiculoForm.placa.$dirty" ng-messages="veiculoForm.placa.$error">
+                    <div ng-message="required" class="alert alert-danger">Preencha a placa do veículo!</div>
+                    <div ng-message="maxlength" class="alert alert-danger">A placa deve ter o formato: DDD-0000!</div>
+                    <div ng-message="pattern" class="alert alert-danger">A placa deve ter o formato: DDD-0000!</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="renavam">Renavam do veículo*</label>
+                <input type="text" class="form-control" name="renavam" id="renavam" ng-model="veiculo.renavam"
+                    placeholder="Digite o renavam do veículo" ng-required="true" ng-maxlength="11" ng-pattern="/^\d{9,11}$/">
+                <div ng-show="veiculoForm.renavam.$dirty" ng-messages="veiculoForm.renavam.$error">
+                    <div ng-message="required" class="alert alert-danger">Preencha o renavam do veículo!</div>
+                    <div ng-message="maxlength" class="alert alert-danger">Renavam possui 9 ou 11 digitos numéricos!</div>
+                    <div ng-message="pattern" class="alert alert-danger">Renavam possui 9 ou 11 digitos numéricos!</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="anoModelo">Ano do veículo*</label>
+                <input type="text" class="form-control" name="anoModelo" id="anoModelo" ng-model="veiculo.anoModelo"
+                    placeholder="Digite o ano do modelo veículo" ng-required="true" ng-maxlength="4" ng-pattern="/^\d{4}$/">
+                <div ng-show="veiculoForm.anoModelo.$dirty" ng-messages="veiculoForm.anoModelo.$error">
+                    <div ng-message="required" class="alert alert-danger">Preencha o ano do veículo!</div>
+                    <div ng-message="maxlength" class="alert alert-danger">O ano deve ter somente 4 digitos numéricos:
+                        EX:2018
+                    </div>
+                    <div ng-message="pattern" class="alert alert-danger">O ano deve ter somente 4 digitos numéricos:
+                        EX:2018!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="cidade">Foto*</label>
+                    <button type="button" class="form-control-file btn btn-primary" ngf-select ng-model="picFile"
+                        accept="image/*" ng-change="converter()" ngf-max-size="2MB" required ngf-model-invalid="errorFile">Selecione a foto</button>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary" ng-click="salvar(veiculoForm, veiculo, picFile)" ng-disabled="veiculoForm.$invalid"
+            ng-hide="veiculo.id"> <i class="fas fa-save"></i> Salvar</button>
+        <button type="submit" class="btn btn-primary" ng-click="salvar(veiculoForm, veiculo)" ng-disabled="veiculoForm.$invalid"
+            ng-show="veiculo.id"><i class="far fa-edit"></i> Atualizar dados</button>
+        <a class="btn btn-primary" ng-href="#/veiculo"><i class="fas fa-long-arrow-alt-left"></i> Voltar</a>
+    </div>
+
+    <hr>
+    <br>
+
+</div>

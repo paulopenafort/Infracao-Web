@@ -1,0 +1,18 @@
+<div ng-controller="ModalDemoCtrl as $ctrl" class="modal-demo">
+    <button type="button" class="btn btn-secondary" ng-click="$ctrl.open()">Open me!</button>
+    <button type="button" class="btn btn-secondary" ng-click="$ctrl.open('lg')">Large modal</button>
+    <button type="button" class="btn btn-secondary" ng-click="$ctrl.open('sm')">Small modal</button>
+    <button type="button"
+        class="btn btn-secondary"
+        ng-click="$ctrl.open('sm', '.modal-parent')">
+            Modal appended to a custom parent
+    </button>
+    <button type="button" class="btn btn-secondary" ng-click="$ctrl.toggleAnimation()">Toggle Animation ({{ $ctrl.animationsEnabled }})</button>
+    <button type="button" class="btn btn-secondary" ng-click="$ctrl.openComponentModal()">Open a component modal!</button>
+    <button type="button" class="btn btn-secondary" ng-click="$ctrl.openMultipleModals()">
+        Open multiple modals at once
+    </button>
+    <div ng-show="$ctrl.selected">Selection from a modal: {{ $ctrl.selected }}</div>
+    <div class="modal-parent">
+    </div>
+</div>

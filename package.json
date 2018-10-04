@@ -11,12 +11,34 @@
   "dependencies": {
     "angular": "^1.5.8",
     "angular-animate": "1.5.8",
+    "angular-datatables": "^0.6.4",
+    "angular-input-masks": "^4.2.1",
     "angular-messages": "1.5.8",
     "angular-route": "1.5.8",
+<<<<<<< HEAD
     "angular-sanitize": "1.5.8",
     "bootstrap": "4.1.3",
     "jquery": "3.3.1",
     "popper.js": "1.14.4",
     "ui-bootstrap4": "3.0.4"
   }
+=======
+    "angular-sanitize": "^1.5.8",
+    "bootstrap": "^4.1.3",
+    "datatables.net-bs4": "^1.10.19",
+    "jquery": "^3.3.1",
+    "ng-file-upload": "^12.2.13",
+    "popper.js": "^1.14.4",
+    "ui-bootstrap4": "^3.0.4"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wrffilho/web-infracao.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wrffilho/web-infracao/issues"
+  },
+  "homepage": "https://github.com/wrffilho/web-infracao#readme"
+>>>>>>> af57e8c145baaa02b9fe6a3a9009f1ac3d1d5c83
 }

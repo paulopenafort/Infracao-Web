@@ -1,0 +1,46 @@
+<div ng-controller="MyCtrl">
+    <form name="cadastroForm">
+        <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <!--<label for="cidade">Cidade*</label>
+                <input type="text" class="form-control" name="cidade" id="cidade" ng-model="veiculo.cidade" placeholder="Digite o cidade do veículo"
+                    ng-required="true">
+                <div ng-show="cadastroForm.pais.$dirty" ng-messages="cadastroForm.pais.$error">
+                    <div ng-message="required" class="alert alert-danger">Preencha a cidade!</div>
+                    <div ng-message="maxlength" class="alert alert-danger">Cidade inválida!</div>
+                </div>-->
+            </div>
+
+            <div class="form-group col-md-4">
+                <!--<div class="form-group">
+                    <label for="pais">País*</label>
+                    <input type="text" class="form-control" name="pais" id="pais" ng-model="veiculo.pais" placeholder="Digite a pais do veículo"
+                        ng-maxlength="20" ng-required="true">
+                    <div ng-show="cadastroForm.pais.$dirty" ng-messages="cadastroForm.pais.$error">
+                        <div ng-message="required" class="alert alert-danger">Preencha o país/div>
+                            <div ng-message="maxlength" class="alert alert-danger">País inválido!</div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+
+            <div class="form-group col-md-4">
+                    <div class="form-group">
+                        <label for="cidade">Foto*</label>
+                        <button type="button" class="form-control-file btn btn-primary" 
+                        ngf-select ng-model="picFile" accept="image/*" ngf-max-size="2MB" required
+                        ngf-model-invalid="errorFile">Selecione a foto</button>
+                    </div>                
+            </div>
+                
+
+
+    </form>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary" ng-click="upload(picFile)" ng-disabled="cadastroForm.$invalid" class="fas fa-save"></i> Salvar</button>
+    </div>
+    <div>{{img}}</div>
+    <div><img ng-src="{{img}}" alt=""></div>
+   
+</div>

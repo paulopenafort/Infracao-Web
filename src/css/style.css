@@ -4,3 +4,22 @@
     color: white;
     font-weight: bold;
 }
+
+.jumbotron {
+   
+  
+    border: solid 3px;
+    border-color: #52A3F9;
+}
+
+.btn{
+    margin-bottom: 1px
+}
+
+.alert{
+    margin-top: 5px
+}
+
+.negrito{
+    font-weight: bold;
+}

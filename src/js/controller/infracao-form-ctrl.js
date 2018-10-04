@@ -1,17 +1,10 @@
 angular.module('mainApp')
-            .controller('InfracaoFormCtrl', function ($scope, InfracaoService,infracao) {
-
-
-            
+            .controller('InfracaoFormCtrl', function ($scope, InfracaoService, infracao) {
+            console.log("infracao" +infracao);
             function init() {
-                $scope.infracao = infracao.data;
-                /*if ($routeParams.id) {
-                    InfracaoService
-                    .buscarPorId($routeParams.id)
-                    .then(function(response){
-                        $scope.infracao = response.data;
-                    });
-                }*/
+                if (infracao!=null) {
+                    $scope.infracao = infracao.data;
+                    }
             }    
 
             function limparCampos(form,infracao) {
@@ -31,6 +24,7 @@ angular.module('mainApp')
                     function (response) {
                         limparCampos(form,infracao);
                         alert(response.data.mensagem);
+                        
                     }, function (error) {
                        if (error.data.mensagem) {
                             alert(error.data.mensagem);
