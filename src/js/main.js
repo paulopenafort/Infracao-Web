@@ -38,6 +38,11 @@ angular.module('mainApp').config(function($routeProvider) {
 		.when('/municipio/form',{
 			templateUrl:'view/municipio/municipio-form.html',
 			controller:"MunicipioFormCtrl",
+			resolve: {
+				municipio: function () {
+					return null;
+				}
+			}
 		})
 		.when('/municipio/form/:id', {
 			templateUrl : 'view/municipio/municipio-form.html',

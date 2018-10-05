@@ -2,16 +2,12 @@ angular.module('mainApp')
             .controller('MunicipioFormCtrl', function ($scope, MunicipioService, municipio) {
 
 
+                console.log("municipio" +municipio);
                 function init() {
-                    $scope.municipio = municipio.data;
-                    /*if ($routeParams.id) {
-                        InfracaoService
-                        .buscarPorId($routeParams.id)
-                        .then(function(response){
-                            $scope.infracao = response.data;
-                        });
-                    }*/
-                }    
+                    if (municipio!=null) {
+                        $scope.municipio = municipio.data;
+                        }
+                }        
     
                 function limparCampos(form,municipio) {
                     if (!municipio.id) {
